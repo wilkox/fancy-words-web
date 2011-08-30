@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110830064039) do
+ActiveRecord::Schema.define(:version => 20110830064412) do
 
   create_table "texts", :force => true do |t|
     t.string   "content"
@@ -20,5 +20,12 @@ ActiveRecord::Schema.define(:version => 20110830064039) do
   end
 
   add_index "texts", ["content"], :name => "index_texts_on_content"
+
+  create_table "words", :force => true do |t|
+    t.string   "word"
+    t.string   "fancy"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
