@@ -1,0 +1,6 @@
+[submodule "vendor/fancy-words"]
+	path = vendor/fancy-words
+	url = git@github.com:wilkox/fancy-words.git
+[submodule "public/stylesheets"]
+	path = public/stylesheets
+	url = https://github.com/twitter/bootstrap.git
