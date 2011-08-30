@@ -4,7 +4,7 @@ use warnings;
 use CGI;
 $query = new CGI;
 
-my $content = $query->param('content')
+my $content = $query->param('content');
 
 print "Content-type: text/html\n\n";
 print <<"EOF";
