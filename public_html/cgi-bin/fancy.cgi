@@ -13,11 +13,11 @@ use CGI;
 );
 
 #read in words
-die unless open(DICT, "<../../dict/ety.csv");
+die unless open(DICT, "<../../fancy-words/dict/ety.csv");
 while (my $line = <DICT>) {
 	next if $. == 1;
 	chomp $line;
-	$line =~ /^([^,]+),()[^,]+),(.+$)/;
+	$line =~ /^([^,]+),([^,]+),(.+$)/;
 	$langOf{$1} = $2;
 	$fancyOf{$1} = $3;
 }
@@ -31,7 +31,7 @@ my $total;
 foreach my $word (@content) {
 	$word = lc($word);
 	if (exists $langOf{$word}) {
-		++$count{$lang{$langOf{$word}};
+		++$count{$lang{$langOf{$word}}};
 		++$fancyCount{$fancyOf{$word}};
 		++$total;
 	} else {
@@ -43,7 +43,7 @@ foreach my $word (@content) {
 
 #produce output
 print "Content-type: text/html\n\n";
-print <<"EOF";
+print <<EOF;
 <HTML>
 <HEAD>
 <TITLE>Fancy-o-meter</TITLE>
@@ -55,7 +55,7 @@ print <<"EOF";
 EOF
 
 my $fancyPer = 100 * $fancyCount{'fancy'} / $total;
-print << EOF;
+print <<EOF;
 <h2>Your text is $fancyPer% fancy!</h2>
 <table>
   <tr>
